@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор 1</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор складу сухої та горючої маси</h1>
+        <form method="post">
+            <label>H (%): <input type="text" name="H"></label>
+            <label>C (%): <input type="text" name="C"></label>
+            <label>S (%): <input type="text" name="S"></label>
+            <label>N (%): <input type="text" name="N"></label>
+            <label>O (%): <input type="text" name="O"></label>
+            <label>W (%): <input type="text" name="W"></label>
+            <label>A (%): <input type="text" name="A"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .KRS}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Коефіцієнт переходу до сухої маси: {{.KRS}}</p>
+            <p>Коефіцієнт переходу до горючої маси: {{.KRG}}</p>
+            <h3>Нижча теплота згоряння:</h3>
+            <p>Робоча маса: {{.QH}} МДж/кг</p>
+            <p>Суха маса: {{.QH_dry}} МДж/кг</p>
+            <p>Горюча маса: {{.QH_comb}} МДж/кг</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>

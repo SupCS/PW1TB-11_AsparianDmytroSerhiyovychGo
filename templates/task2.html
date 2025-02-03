@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор 2</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор для перерахунку елементарного складу</h1>
+        <form method="post">
+            <label>Вуглець C (%): <input type="text" name="C"></label>
+            <label>Водень H (%): <input type="text" name="H"></label>
+            <label>Сірка S (%): <input type="text" name="S"></label>
+            <label>Кисень O (%): <input type="text" name="O"></label>
+            <label>Вологість W (%): <input type="text" name="W"></label>
+            <label>Зольність A (%): <input type="text" name="A"></label>
+            <label>Ванадій V (мг/кг): <input type="text" name="V"></label>
+            <label>Нижча теплота згоряння горючої маси (МДж/кг): <input type="text" name="Q_comb"></label>
+            <button type="submit">Розрахувати</button>
+        </form>
+
+        {{if .KRS}}
+        <div class="result">
+            <h2>Результати:</h2>
+            <p>Коефіцієнт переходу до робочої маси: {{.KRS}}</p>
+            <h3>Нижча теплота згоряння:</h3>
+            <p>Робоча маса: {{.Q_r}} МДж/кг</p>
+        </div>
+        {{end}}
+
+        <a class="back-link" href="/">Повернутися на головну</a>
+    </div>
+</body>
+</html>
